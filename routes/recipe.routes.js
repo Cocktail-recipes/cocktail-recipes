@@ -25,7 +25,7 @@ router.get('/recipes/:recipeId', (req, res, next) => {
     .catch(err => {
         console.log('error getting recipe details from DB', err);
         next(err);
-    })
+    });
 });
 
 //CREATE: display form
