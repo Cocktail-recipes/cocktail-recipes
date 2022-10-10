@@ -53,7 +53,7 @@ module.exports = (app) => {
   // ℹ️ Middleware that adds a "req.session" information and later to check that you are who you say you are 😅
   app.use(
     session({
-      secret: process.env.SESS_SECRET,
+      secret: process.env.SESSION_SECRET,
       resave: true,
       saveUninitialized: false,
       cookie: {

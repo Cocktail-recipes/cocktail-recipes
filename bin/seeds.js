@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 const Recipe = require('../models/Recipe.model');
 
-const MONGO_URI = process.env.MONGODB_URI || 'mongodb://localhost/cocktail-recipes';
+const MONGO_URI = process.env.MONGODB_URI || 'mongodb://127.0.0.1:27017/cocktail-recipes';
 
 mongoose
   .connect(MONGO_URI)
