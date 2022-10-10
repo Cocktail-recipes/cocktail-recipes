@@ -1,0 +1,28 @@
+<h2>Add a new Cocktail recipe</h2>
+
+<form action="/recipes/create" method="post">
+    <label>Name:
+        <input type="text" name="name"/>
+    </label>
+    <label>Spirits:
+        <select name="spirits" multiple>
+            {{#each spirits}}
+                <option value="{{this.spirits}}">{{this.spirits}}</option>
+            {{/each}}
+        </select>
+    </label>
+    <label>Ingredients:
+        <input type="text" name="otherIngredients" />
+    </label>
+        <label>Difficulty:
+        <select name="difficulty"></select>
+    </label>
+    <label>Description:
+        <textarea name="description" cols="30" rows="4"></textarea>
+    </label>
+    <label>Instructions:
+        <textarea name="instructionSteps" cols="30" rows="8"></textarea>
+    </label>
+
+    <button type="submit">Add your Cocktail Recipe</button>
+</form>
