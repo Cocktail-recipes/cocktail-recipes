@@ -14,7 +14,11 @@
 </label>
 
   <label> Ingredients:
-    <input name="otherIngredients" value="{{otherIngredients}}" />
+    <select name="otherIngredients" multiple>
+        {{#each otherIngredients}}
+            <option value="{{this.otherIngredients}}">{{this.otherIngredients}}</option>
+        {{/each}}
+    </select>
   </label>
 
   <label> Description:
