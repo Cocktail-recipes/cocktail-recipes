@@ -1,0 +1,33 @@
+<h2>Edit the recipe for {{name}}</h2>
+
+<form action="/recipes/{{_id}}/edit" method="post">
+  <label> Name:
+    <input type="text" name="name" value="{{name}}" />
+  </label>
+
+<label>Spirits:
+    <select name="spirits" multiple>
+        {{#each spirits}}
+            <option value="{{this.spirits}}">{{this.spirits}}</option>
+        {{/each}}
+    </select>
+</label>
+
+  <label> Ingredients:
+    <input name="otherIngredients" value="{{otherIngredients}}" />
+  </label>
+
+  <label> Description:
+    <textarea name="description" cols="30" rows="4" >{{description}}</textarea> />
+  </label>
+
+  <label> Difficulty:
+    <select name="difficulty" value="{{difficulty}}"></select>
+  </label>
+
+  <label> Instructions:
+    <textarea name="instructionSteps" cols="30" rows="8">{{instructionSteps}}</textarea> />
+  </label>
+
+  <button>Save changes</button>
+</form>
