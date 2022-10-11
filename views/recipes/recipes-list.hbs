@@ -1,20 +1,22 @@
-<h1>Recipes in our DB:</h1>
-
-<div class="container text-center">
+<div class="container text-left">
   <div class="row">
+    <h1>Recipes in our DB:</h1>
     {{#each recipes}}
-      <section class="col-12 col-md-6" >
-        <h2>{{this.name}}</h2>
-        <p>
-          Description:
-          {{this.description}}<br />
-          Difficulty:
-          {{this.difficulty}}
-          <br />
-          <a href="/recipes/{{_id}}">More details</a>
-          |
-          <a href="/recipes/{{_id}}/edit">Edit</a>
-        </p>
+      <section class="col-xxl-3 col-xl-4 col-lg-6 col-sm-12">
+
+        <div class="card" style="width: 18rem;">
+          <div class="card-body">
+            <h5 class="card-title">{{this.name}}</h5>
+            <p class="card-text">
+              Description:
+              {{this.description}}<br />
+              Difficulty:
+              {{this.difficulty}}
+            </p>
+            <a href="/recipes/{{_id}}" class="card-link">More details</a>
+            <a href="/recipes/{{_id}}/edit" class="card-link">Edit</a>
+          </div>
+        </div>
 
       </section>
     {{/each}}
