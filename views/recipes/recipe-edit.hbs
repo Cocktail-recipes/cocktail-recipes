@@ -1,36 +1,39 @@
 <h2>Edit the recipe for {{name}}</h2>
 
-<form action="/recipes/{{_id}}/edit" method="post">
+<form action="/{{_id}}/edit" method="post">
   <label> Name:
     <input type="text" name="name" value="{{name}}" />
   </label>
 
-<label>Spirits:
-    <select name="spirits" multiple>
-        {{#each spirits}}
-            <option value="{{this.spirits}}">{{this.spirits}}</option>
-        {{/each}}
-    </select>
-</label>
+    <label>Spirits:
+        <select name="spirits" multiple>
+                <option value="Gin">Gin</option>
+                <option value="Vodka">Vodka</option>
+                <option value="Rum">Rum</option>
+                <option value="Tequila">Tequila</option>
+                <option value="Other">Other</option>
+        </select>
+    </label>
 
   <label> Ingredients:
-    <select name="otherIngredients" multiple>
-        {{#each otherIngredients}}
-            <option value="{{this.otherIngredients}}">{{this.otherIngredients}}</option>
-        {{/each}}
-    </select>
+    <input type="text" name="otherIngredients" value="{{otherIngredients}}">
   </label>
 
   <label> Description:
-    <textarea name="description" cols="30" rows="4" >{{description}}</textarea> />
+    <textarea name="description" cols="30" rows="4" >{{description}}</textarea>
   </label>
 
-  <label> Difficulty:
-    <select name="difficulty" value="{{difficulty}}"></select>
-  </label>
+    </label>
+        <label>Difficulty:
+        <select name="difficulty">
+                <option value="easy">easy</option>
+                <option value="medium">medium</option>
+                <option value="hard">hard</option>
+        </select>
+    </label>
 
   <label> Instructions:
-    <textarea name="instructionSteps" cols="30" rows="8">{{instructionSteps}}</textarea> />
+    <textarea name="instructionSteps" cols="30" rows="8">{{instructionSteps}}</textarea>
   </label>
 
   <button>Save changes</button>
