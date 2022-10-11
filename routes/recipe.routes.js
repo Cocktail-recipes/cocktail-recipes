@@ -89,6 +89,29 @@ router.post('/recipes/:recipeId/edit', (req, res, next) => {
     });
 });
 
+//DELETE FROM RECIPES LIST PAGE
+router.get('/recipes/:recipeId/delete', (req, res, next) => {
+    Recipe.findByIdAndDelete(req.params.recipeId)
+    .then(() => {
+        res.redirect('/recipes');
+    })
+    .catch(err => {
+        console.log('error deleting book', err);
+        next();
+    });
+});
 
+
+//DELETE FROM EDIT PAGE
+router.post('/recipes/:recipeId/delete', (req, res, next) => {
+    Recipe.findByIdAndDelete(req.params.recipeId)
+    .then(() => {
+        res.redirect('/recipes');
+    })
+    .catch(err => {
+        console.log('error deleting book', err);
+        next();
+    });
+});
 
 module.exports = router;

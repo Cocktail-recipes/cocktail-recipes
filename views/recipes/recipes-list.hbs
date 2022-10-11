@@ -3,7 +3,6 @@
     <h1>Recipes in our DB:</h1>
     {{#each recipes}}
       <section class="col-xxl-3 col-xl-4 col-lg-6 col-sm-12">
-
         <div class="card" style="width: 18rem;">
           <div class="card-body">
             <h5 class="card-title">{{this.name}}</h5>
@@ -15,9 +14,9 @@
             </p>
             <a href="/recipes/{{_id}}" class="card-link">More details</a>
             <a href="/recipes/{{_id}}/edit" class="card-link">Edit</a>
+            <a href="/recipes/{{_id}}/delete">Delete</a>
           </div>
         </div>
-
       </section>
     {{/each}}
   </div>
