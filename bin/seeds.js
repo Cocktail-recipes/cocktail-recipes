@@ -49,7 +49,7 @@ const recipes = [
     },
     {
         name: "Caipirinha",
-        spirits: "other",
+        spirits: "Other",
         otherIngredients: ["60 ml Cachaça", "1 Lime cut into small wedges", "4 Teaspoons White Cane Sugar"],
         description: "Chances are high you encountered Brazil’s national drink, the Caipirinha, if you’ve traveled to the South American country. Refreshing and easy to make, the cocktail contains fresh lime juice, sugar and cachaça—a spirit as central to Brazilian identity as samba, soccer and carnival. Cachaça is also the country’s national spirit, inextricably tying this drink to its home.",
         difficulty: "easy",
