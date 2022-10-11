@@ -2,12 +2,15 @@
 Spirits: {{spirits}} <br />
 Ingredients:
 <ul>
-    <li>{{#each otherIngredients}}</li>
-        {{/each}}
+    {{#each otherIngredients}}
+        <li>{{this}}</li>
+    {{/each}}
 </ul>
 Difficulty: {{difficulty}}<br />
 Description: {{description}}<br />
 Instructions: <ul>
-    <li>{{#each instructionSteps}}</li>
-        {{/each}}
+    {{#each instructionSteps}}
+        <li>{{this}}</li>
+    {{/each}}
+    
 </ul>
