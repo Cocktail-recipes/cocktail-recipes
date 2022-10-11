@@ -73,8 +73,11 @@ Promise.all([recipesPromise])
     console.log(`Number of recipes created... ${recipesCreated.length} `);
 
     // Once created, close the DB connection
-    mongoose.connection.close();
+    return mongoose.connection.close();
 
   })
+  .then(() => console.log('connection closed'))
   .catch( e => console.log("error seeding data in DB....", e));
+
+
   
