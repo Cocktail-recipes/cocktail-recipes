@@ -4,7 +4,7 @@ const Schema = mongoose.Schema;
 const recipeSchema = new Schema({
     name: {
         type: String,
-        required: true,
+        required: [true, 'A name is required.'],
         unique: true,
     },
     spirits: {
