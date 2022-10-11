@@ -1,5 +1,7 @@
 const Recipe = require('../models/Recipe.model');
 
+const isLoggedIn = require('../middleware/isLoggedIn');
+
 const router = require('express').Router();
 
 //READ: list all recipes
@@ -15,12 +17,12 @@ router.get('/recipes', (req, res, next) => {
 });
 
 //CREATE: display form
-router.get('/recipes/create', (req, res, next) => {
+router.get('/recipes/create', isLoggedIn, (req, res, next) => {
     res.render('recipes/recipe-create');
 });
 
 //CREATE: process form
-router.post('/recipes/create', (req, res, next) => {
+router.post('/recipes/create', isLoggedIn, (req, res, next) => {
     const recipeDetails = {
         name: req.body.name,
         spirits: req.body.spirits,
@@ -57,7 +59,7 @@ router.get('/recipes/:recipeId', (req, res, next) => {
 });
 
 //UPDATE: display form
-router.get('/recipes/:recipeId/edit', (req, res, next) => {
+router.get('/recipes/:recipeId/edit', isLoggedIn, (req, res, next) => {
     Recipe.findById(req.params.recipeId)
     .then((recipeDetails) => {
         res.render('recipes/recipe-edit', recipeDetails);
@@ -69,7 +71,7 @@ router.get('/recipes/:recipeId/edit', (req, res, next) => {
 });
 
 //UPDATE: process form
-router.post('/recipes/:recipeId/edit', (req, res, next) => {
+router.post('/recipes/:recipeId/edit', isLoggedIn, (req, res, next) => {
     const recipeId = req.params.recipeId;
 
     const newDetails = {
@@ -90,7 +92,7 @@ router.post('/recipes/:recipeId/edit', (req, res, next) => {
 });
 
 //DELETE FROM RECIPES LIST PAGE
-router.get('/recipes/:recipeId/delete', (req, res, next) => {
+router.get('/recipes/:recipeId/delete', isLoggedIn, (req, res, next) => {
     Recipe.findByIdAndDelete(req.params.recipeId)
     .then(() => {
         res.redirect('/recipes');
@@ -103,7 +105,7 @@ router.get('/recipes/:recipeId/delete', (req, res, next) => {
 
 
 //DELETE FROM EDIT PAGE
-router.post('/recipes/:recipeId/delete', (req, res, next) => {
+router.post('/recipes/:recipeId/delete', isLoggedIn, (req, res, next) => {
     Recipe.findByIdAndDelete(req.params.recipeId)
     .then(() => {
         res.redirect('/recipes');
