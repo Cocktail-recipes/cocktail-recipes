@@ -31,10 +31,10 @@ router.post('/recipes/create', (req, res, next) => {
     }
     Recipe.create(recipeDetails)
     .then(() => {
-        res.redirect('recipes');
+        res.redirect('/recipes');
     })
     .catch(err => {
-        res.redirect('recipes/recipe-create');
+        res.redirect('/recipe-create');
     });
 });
 
@@ -78,10 +78,10 @@ router.post('/recipes/:recipeId/edit', (req, res, next) => {
     }
     Recipe.findByIdAndUpdate(recipeId, newDetails)
     .then(() => {
-        res.redirect(`recipes/${recipeId}`);
+        res.redirect(`/recipes/${recipeId}`);
     })
     .catch(err => {
-        res.redirect('recipes/recipe-edit');
+        res.redirect('/recipes/recipe-edit');
     });
 });
 
