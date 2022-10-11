@@ -14,20 +14,6 @@ router.get('/recipes', (req, res, next) => {
     });
 });
 
-//READ: Recipe details
-router.get('/recipes/:recipeId', (req, res, next) => {
-    const id = req.params.recipeId;
-
-    Recipe.findById(id)
-    .then(recipeDetails => {
-        res.render('/recipes/recipe-details', recipeDetails);
-    })
-    .catch(err => {
-        console.log('error getting recipe details from DB', err);
-        next(err);
-    });
-});
-
 //CREATE: display form
 router.get('/recipes/create', (req, res, next) => {
     res.render('/recipes/recipe-create');
@@ -49,6 +35,20 @@ router.post('/recipes/create', (req, res, next) => {
     })
     .catch(err => {
         res.redirect('/recipes/recipe-create');
+    });
+});
+
+//READ: Recipe details
+router.get('/recipes/:recipeId', (req, res, next) => {
+    const id = req.params.recipeId;
+
+    Recipe.findById(id)
+    .then(recipeDetails => {
+        res.render('/recipes/recipe-details', recipeDetails);
+    })
+    .catch(err => {
+        console.log('error getting recipe details from DB', err);
+        next(err);
     });
 });
 
