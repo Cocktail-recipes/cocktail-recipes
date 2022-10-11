@@ -9,6 +9,26 @@
   </head>
 
   <body>
+   <header>
+      <p>
+         <a href="/recipes">Recipes list</a> |
+         <a href="/recipes/create">Create a new cocktail recipe</a>
+      </p>
+
+      <p>
+         {{#if userInSession}}
+            Hello, {{ userInSession.email }} |
+            <a href="/user-profile">Profile Page</a>
+            <br>
+            <form id="logout-form" action="/logout" method="POST">
+               <button>Logout</button>
+            </form>
+         {{else}}
+            <a href="/signup">Register</a> |
+            <a href="/login">Login</a>
+         {{/if}}
+      </p>
+   </header>
 
     {{{body}}}
 
