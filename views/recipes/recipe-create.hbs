@@ -1,39 +1,75 @@
-<h2>Add a new Cocktail recipe</h2>
+<div class="container text-left">
 
-<form action="/recipes/create" method="post">
-    <label>Name:
-        <input type="text" name="name"/>
-    </label>
-    <label>Spirits:
-        <select name="spirits" multiple>
-                <option value="Gin">Gin</option>
-                <option value="Vodka">Vodka</option>
-                <option value="Rum">Rum</option>
-                <option value="Tequila">Tequila</option>
-                <option value="Other">Other</option>
+  <section class="container mt-3">
 
-        </select>
-    </label>
-    <label>Ingredients:
-        <input type="text" name="otherIngredients" />
-    </label>
-        <label>Difficulty:
-        <select name="difficulty">
-                <option value="easy">easy</option>
-                <option value="medium">medium</option>
-                <option value="hard">hard</option>
-        </select>
-    </label>
-    <label>Description:
-        <textarea name="description" cols="30" rows="4"></textarea>
-    </label>
-    <label>Instructions:
-        <textarea name="instructionSteps" cols="30" rows="8"></textarea>
-    </label>
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">Add a new cocktail recipe</h5>
 
-    <button type="submit">Add your Cocktail Recipe</button>
-</form>
+        <form action="/recipes/create" method="post">
 
-{{#if errorMessage}}
-    <p class="error">{{errorMessage}}</p>
-{{/if}}
+          <div class="mb-3">
+            <label class="form-label"><strong>Name:</strong></label>
+            <input type="text" class="form-control" name="name" />
+          </div>
+
+          <div class="mb-3">
+            <label class="form-label"><strong>Spirits:</strong></label>
+            <select name="spirits" class="form-select" size="5" multiple>
+              <option value="Gin">Gin</option>
+              <option value="Vodka">Vodka</option>
+              <option value="Rum">Rum</option>
+              <option value="Tequila">Tequila</option>
+              <option value="Other">Other</option>
+            </select>
+          </div>
+
+          <div class="mb-3">
+            <label class="form-label"><strong>Ingredients:</strong></label>
+            <textarea
+              class="form-control"
+              name="otherIngredients"
+              cols="40"
+              rows="4"
+            ></textarea>
+          </div>
+
+          <div class="mb-3">
+            <label class="form-label"><strong>Description:</strong></label>
+            <textarea
+              class="form-control"
+              name="description"
+              cols="40"
+              rows="6"
+            ></textarea>
+          </div>
+
+          <div class="mb-3">
+            <label class="form-label"><strong>Instructions:</strong></label>
+            <textarea
+              class="form-control"
+              name="instructionSteps"
+              cols="40"
+              rows="4"
+            ></textarea>
+          </div>
+
+          <div class="mb-3">
+            <label class="form-label"><strong>Difficulty:</strong></label>
+            <select name="difficulty">
+              <option value="easy">easy</option>
+              <option value="medium">medium</option>
+              <option value="hard">hard</option>
+            </select>
+            </div>
+
+          <button type="submit" class="btn btn-primary">Add your cocktail recipe</button>
+        </form>
+
+        {{#if errorMessage}}
+          <p class="error">{{errorMessage}}</p>
+        {{/if}}
+      </div>
+    </div>
+  </section>
+</div>

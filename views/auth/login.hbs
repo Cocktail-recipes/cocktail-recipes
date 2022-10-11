@@ -1,14 +1,43 @@
-<form action="/auth/login" method="POST">
-   <label>Email
-      <input type="email" name="email" required />
-   </label>
-   <label> Password
-      <input type="password" name="password" required>
-   </label>
+<div class="container text-left">
 
-   <button type="submit">Login</button>
-</form>
+  <section class="container mt-3">
+
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title"><strong>Login</strong></h5>
+
+        <form action="/auth/login" method="POST">
+
+          <div class="mb-3">
+            <label class="form-label"><strong>Email address</strong></label>
+            <input
+              type="email"
+              class="form-control"
+              name="email"
+              placeholder="rockstar@ironhack.com"
+              required
+            />
+          </div>
+
+          <div class="mb-3">
+            <label class="form-label"><strong>Password</strong></label>
+            <input
+              type="password"
+              class="form-control"
+              name="password"
+              placeholder="xxxxxxxx"
+              required
+            />
+          </div>
+
+          <button type="submit" class="btn btn-primary">Login</button>
+        </form>
+
+      </div>
+    </div>
+  </section>
+</div>
 
 {{#if errorMessage}}
-   {{errorMessage}}
+  {{errorMessage}}
 {{/if}}

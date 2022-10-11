@@ -1,6 +1,6 @@
 <div class="container text-left">
 
-    <section class="container">
+    <section class="container mt-3">
 
       <div class="card">
         <div class="card-body">
@@ -17,13 +17,13 @@
           <p><strong>Difficulty:</strong> {{difficulty}}</p>
           <p><strong>Description:</strong> {{description}}</p>
           <p><strong>Instructions:</strong></p>
-          <ul>
+          <ol>
             {{#each instructionSteps}}
               <li>{{this}}</li>
             {{/each}}
-          </ul>
+          </ol>
 
-          <a href="/recipes/{{_id}}/edit">Edit</a>
+          <a href="/recipes/{{_id}}/edit" class="btn btn-primary">Edit</a>
         </div>
       </div>
     </section>
