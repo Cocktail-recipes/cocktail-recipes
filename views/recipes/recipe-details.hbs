@@ -1,17 +1,30 @@
-<h2>{{name}}</h2>
-Spirits: {{spirits}} <br />
-Ingredients:
-<ul>
-    {{#each otherIngredients}}
-        <li>{{this}}</li>
-    {{/each}}
-</ul>
-Difficulty: {{difficulty}}<br />
-Description: {{description}}<br />
-Instructions: <ul>
-    {{#each instructionSteps}}
-        <li>{{this}}</li>
-    {{/each}}
-</ul>
+<div class="container text-left">
 
-<a href="/recipes/{{_id}}/edit">Edit</a>
+    <section class="container">
+
+      <div class="card">
+        <div class="card-body">
+
+          <h5 class="card-title">{{name}}</h5>
+
+          <p><strong>Spirits:</strong> {{spirits}} </p>
+          <p><strong>Ingredients:</strong></p>
+          <ul>
+            {{#each otherIngredients}}
+              <li>{{this}}</li>
+            {{/each}}
+          </ul>
+          <p><strong>Difficulty:</strong> {{difficulty}}</p>
+          <p><strong>Description:</strong> {{description}}</p>
+          <p><strong>Instructions:</strong></p>
+          <ul>
+            {{#each instructionSteps}}
+              <li>{{this}}</li>
+            {{/each}}
+          </ul>
+
+          <a href="/recipes/{{_id}}/edit">Edit</a>
+        </div>
+      </div>
+    </section>
+</div>
