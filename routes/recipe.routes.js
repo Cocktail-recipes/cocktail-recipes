@@ -29,6 +29,10 @@ router.post('/recipes/create', (req, res, next) => {
         difficulty: req.body.difficulty,
         instructionSteps: req.body.instructionSteps,
     }
+    if (!recipeDetails.name || !recipeDetails.otherIngredients || !recipeDetails.instructionSteps) {
+        res.render('recipes/recipe-create', { errorMessage: 'Please fill out all mandatory fields. You must provide at least a cocktail name, the ingredients, and the instructions.'});
+        return;
+    }
     Recipe.create(recipeDetails)
     .then(() => {
         res.redirect('/recipes');
