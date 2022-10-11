@@ -16,7 +16,7 @@ router.get('/recipes', (req, res, next) => {
 
 //CREATE: display form
 router.get('/recipes/create', (req, res, next) => {
-    res.render('/recipes/recipe-create');
+    res.render('recipes/recipe-create');
 });
 
 //CREATE: process form
@@ -44,7 +44,7 @@ router.get('/recipes/:recipeId', (req, res, next) => {
 
     Recipe.findById(id)
     .then(recipeDetails => {
-        res.render('/recipes/recipe-details', recipeDetails);
+        res.render('recipes/recipe-details', recipeDetails);
     })
     .catch(err => {
         console.log('error getting recipe details from DB', err);
