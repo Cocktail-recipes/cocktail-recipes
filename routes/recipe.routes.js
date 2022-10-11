@@ -31,10 +31,10 @@ router.post('/recipes/create', (req, res, next) => {
     }
     Recipe.create(recipeDetails)
     .then(() => {
-        res.redirect('/recipes');
+        res.redirect('recipes');
     })
     .catch(err => {
-        res.redirect('/recipes/recipe-create');
+        res.redirect('recipes/recipe-create');
     });
 });
 
@@ -56,7 +56,7 @@ router.get('/recipes/:recipeId', (req, res, next) => {
 router.get('/recipes/:recipeId/edit', (req, res, next) => {
     Recipe.findById(req.params.recipeId)
     .then((recipeDetails) => {
-        res.render('/recipes/recipe-edit', recipeDetails);
+        res.render('recipes/recipe-edit', recipeDetails);
     })
     .catch(err => {
         console.log('error getting recipe details from DB', err);
@@ -78,10 +78,10 @@ router.post('/recipes/:recipeId/edit', (req, res, next) => {
     }
     Recipe.findByIdAndUpdate(recipeId, newDetails)
     .then(() => {
-        res.redirect(`/recipes/${recipeId}`);
+        res.redirect(`recipes/${recipeId}`);
     })
     .catch(err => {
-        res.redirect('/recipes/recipe-edit');
+        res.redirect('recipes/recipe-edit');
     });
 });
 
