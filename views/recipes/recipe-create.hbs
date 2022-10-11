@@ -6,16 +6,25 @@
     </label>
     <label>Spirits:
         <select name="spirits" multiple>
-            {{#each spirits}}
-                <option value="{{spirits}}">{{spirits}}</option>
-            {{/each}}
+                <option value="Gin">Gin</option>
+                <option value="Vodka">Vodka</option>
+                <option value="Rum">Rum</option>
+                <option value="Tequila">Tequila</option>
+                <option value="Other">Other</option>
+
         </select>
     </label>
     <label>Ingredients:
         <input type="text" name="otherIngredients" />
     </label>
         <label>Difficulty:
-        <select name="difficulty"></select>
+        <select name="difficulty">
+                <option value="easy">easy</option>
+                <option value="medium">medium</option>
+                <option value="hard">hard</option>
+
+
+        </select>
     </label>
     <label>Description:
         <textarea name="description" cols="30" rows="4"></textarea>
