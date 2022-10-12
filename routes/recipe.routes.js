@@ -65,8 +65,8 @@ router.get('/recipes/:recipeId', (req, res, next) => {
 router.get('/recipes/:recipeId/edit', isLoggedIn, (req, res, next) => {
     Recipe.findById(req.params.recipeId)
     .then((recipeDetails) => {
-        let remainingAlcohol = alcohol.filter(a => 
-            a !== recipeDetails.spirits)
+//        let remainingAlcohol = alcohol.filter(a => 
+//            !)
         let remainingDifficulties = difficulties.filter(d => 
             d !== recipeDetails.difficulty)
         res.render('recipes/recipe-edit', { recipeDetails, remainingAlcohol: remainingAlcohol, remainingDifficulties: remainingDifficulties });
@@ -88,7 +88,8 @@ router.post('/recipes/:recipeId/edit', isLoggedIn, (req, res, next) => {
         description: req.body.description,
         difficulty: req.body.difficulty,
         instructionSteps: req.body.instructionSteps,
-    }
+    };
+//    const split = otherIngredients.split(', ');
     Recipe.findByIdAndUpdate(recipeId, newDetails)
     .then(() => {
         res.redirect(`/recipes/${recipeId}`);
