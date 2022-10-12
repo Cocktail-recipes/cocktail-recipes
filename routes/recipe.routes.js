@@ -1,4 +1,5 @@
 const Recipe = require('../models/Recipe.model');
+const fileUploader = require('../config/cloudinary.config');
 
 const isLoggedIn = require('../middleware/isLoggedIn');
 
@@ -25,7 +26,7 @@ router.get('/recipes/create', isLoggedIn, (req, res, next) => {
 });
 
 //CREATE: process form
-router.post('/recipes/create', isLoggedIn, (req, res, next) => {
+router.post('/recipes/create', isLoggedIn, fileUploader.single('cocktail-image'), (req, res, next) => {
     const recipeDetails = {
         name: req.body.name,
         spirits: req.body.spirits,
@@ -33,6 +34,7 @@ router.post('/recipes/create', isLoggedIn, (req, res, next) => {
         description: req.body.description,
         difficulty: req.body.difficulty,
         instructionSteps: req.body.instructionSteps,
+        imageUrl: req.file.path
     }
     if (!recipeDetails.name || !recipeDetails.otherIngredients || !recipeDetails.instructionSteps) {
         res.render('recipes/recipe-create', { errorMessage: 'Please fill out all mandatory fields. You must provide at least a cocktail name, the ingredients, and the instructions.'});
@@ -69,7 +71,7 @@ router.get('/recipes/:recipeId/edit', isLoggedIn, (req, res, next) => {
 //            !)
         let remainingDifficulties = difficulties.filter(d => 
             d !== recipeDetails.difficulty)
-        res.render('recipes/recipe-edit', { recipeDetails, remainingAlcohol: remainingAlcohol, remainingDifficulties: remainingDifficulties });
+        res.render('recipes/recipe-edit', { recipeDetails, remainingDifficulties: remainingDifficulties });
     })
     .catch(err => {
         console.log('error getting recipe details from DB', err);
@@ -78,19 +80,20 @@ router.get('/recipes/:recipeId/edit', isLoggedIn, (req, res, next) => {
 });
 
 //UPDATE: process form
-router.post('/recipes/:recipeId/edit', isLoggedIn, (req, res, next) => {
-    const recipeId = req.params.recipeId;
+router.post('/recipes/:recipeId/edit', isLoggedIn, fileUploader.single('cocktail-image'), (req, res, next) => {
 
-    const newDetails = {
-        name: req.body.name,
-        spirits: req.body.spirits,
-        otherIngredients: req.body.otherIngredients,
-        description: req.body.description,
-        difficulty: req.body.difficulty,
-        instructionSteps: req.body.instructionSteps,
-    };
+    const { recipeId } = req.params;
+    const { name, spirits, otherIngredients, description, difficulty, instructionSteps, existingImage } = req.body;
+
+    let imageUrl;
+    if (req.file) {
+      imageUrl = req.file.path;
+    } else {
+      imageUrl = existingImage;
+    }
+  
 //    const split = otherIngredients.split(', ');
-    Recipe.findByIdAndUpdate(recipeId, newDetails)
+    Recipe.findByIdAndUpdate(recipeId, {name, spirits, otherIngredients, description, difficulty, instructionSteps, imageUrl}, {new: true})
     .then(() => {
         res.redirect(`/recipes/${recipeId}`);
     })

@@ -6,12 +6,19 @@
       <div class="card-body">
         <h5 class="card-title">Add a new cocktail recipe</h5>
 
-        <form action="/recipes/create" method="post">
+        <form action="/recipes/create" method="post" enctype="multipart/form-data">
 
           <div class="mb-3">
             <label class="form-label"><strong>Name:</strong></label>
             <input type="text" class="form-control" name="name" />
           </div>
+
+          <div class="mb-3">
+            <label>Image:
+              <input type="file" name="cocktail-image" class="form-control-file" />
+            </label>
+          </div>
+
 
           <div class="mb-3">
             <label class="form-label"><strong>Spirits:</strong></label>

@@ -25,6 +25,9 @@ const recipeSchema = new Schema({
     instructionSteps: {
         type: [ String ],
         required: [true, 'Instructions are required.'],
+    },
+    imageUrl: {
+        type: String
     }
 });
 

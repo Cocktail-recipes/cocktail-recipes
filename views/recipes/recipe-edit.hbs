@@ -6,7 +6,7 @@
       <div class="card-body">
         <h5 class="card-title">Edit the recipe for<strong>{{recipeDetails.name}}</strong></h5>
 
-        <form action="/recipes/{{recipeDetails._id}}/edit" method="post">
+        <form action="/recipes/{{recipeDetails._id}}/edit" method="post" enctype="multipart/form-data">
 
           <div class="mb-3">
             <label class="form-label"><strong>Name:</strong>
@@ -17,6 +17,14 @@
               value="{{recipeDetails.name}}"
             /></label>
           </div>
+
+          <div class="mb-3">
+            <label>Image:
+              <input type="file" name="cocktail-image" class="form-control-file" />
+              <input type="text" name="existingImage" hidden value="{{recipeDetails.imageUrl}}">
+            </label>
+          </div>
+
 
           <div class="mb-3">
             <label class="form-label"><strong>Spirits:</strong>
