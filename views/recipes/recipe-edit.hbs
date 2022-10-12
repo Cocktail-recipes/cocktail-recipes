@@ -4,9 +4,9 @@
 
     <div class="card">
       <div class="card-body">
-        <h5 class="card-title">Edit the recipe for<strong>{{name}}</strong></h5>
+        <h5 class="card-title">Edit the recipe for<strong>{{recipeDetails.name}}</strong></h5>
 
-        <form action="/recipes/{{_id}}/edit" method="post">
+        <form action="/recipes/{{recipeDetails._id}}/edit" method="post">
 
           <div class="mb-3">
             <label class="form-label"><strong>Name:</strong></label>
@@ -14,7 +14,7 @@
               type="text"
               class="form-control"
               name="name"
-              value="{{name}}"
+              value="{{recipeDetails.name}}"
             />
           </div>
 
@@ -36,7 +36,7 @@
               name="otherIngredients"
               cols="40"
               rows="4"
-            >{{otherIngredients}}</textarea>
+            >{{recipeDetails.otherIngredients}}</textarea>
           </div>
 
           <div class="mb-3">
@@ -46,7 +46,7 @@
               name="description"
               cols="40"
               rows="6"
-            >{{description}}</textarea>
+            >{{recipeDetails.description}}</textarea>
           </div>
 
           <div class="mb-3">
@@ -56,15 +56,16 @@
               name="instructionSteps"
               cols="40"
               rows="4"
-            >{{instructionSteps}}</textarea>
+            >{{recipeDetails.instructionSteps}}</textarea>
           </div>
 
           <div class="mb-3">
             <label class="form-label"><strong>Difficulty:</strong></label>
-            <select class="form-select" name="difficulty">
-              <option value="easy">easy</option>
-              <option value="medium">medium</option>
-              <option value="hard">hard</option>
+            <select class="form-select" name="difficulty" value="{{recipeDetails.difficulty}}">
+              <option value="{{recipeDetails.difficulty}}" selected>{{recipeDetails.difficulty}}</option>
+            {{#each remainingDifficulties}}
+              <option value="{{this}}">{{this}}</option>
+            {{/each}}
             </select>
           </div>
 
@@ -73,7 +74,7 @@
       </div>
 
       <div class="mb-3">
-        <form action="/recipes/{{_id}}/delete" method="post">
+        <form action="/recipes/{{recipeDetails._id}}/delete" method="post">
           <button type="submit" class="btn btn-primary">Delete</button>
         </form>
       </div>
