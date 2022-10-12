@@ -9,64 +9,63 @@
         <form action="/recipes/{{recipeDetails._id}}/edit" method="post">
 
           <div class="mb-3">
-            <label class="form-label"><strong>Name:</strong></label>
+            <label class="form-label"><strong>Name:</strong>
             <input
               type="text"
               class="form-control"
               name="name"
               value="{{recipeDetails.name}}"
-            />
+            /></label>
           </div>
 
           <div class="mb-3">
-            <label class="form-label"><strong>Spirits:</strong></label>
-            <select name="spirits" class="form-select" size="5" multiple>
-              <option value="Gin">Gin</option>
-              <option value="Vodka">Vodka</option>
-              <option value="Rum">Rum</option>
-              <option value="Tequila">Tequila</option>
-              <option value="Other">Other</option>
-            </select>
+            <label class="form-label"><strong>Spirits:</strong>
+            <select class="form-select" name="spirits" size="5" value="{{recipeDetails.spirits}}">
+              <option value="{{recipeDetails.spirits}}" selected>{{recipeDetails.spirits}}</option>
+              {{#each remainingAlcohol}}
+                <option value="{{this}}">{{this}}</option>
+              {{/each}}
+            </select></label>
           </div>
 
           <div class="mb-3">
-            <label class="form-label"><strong>Ingredients:</strong></label>
+            <label class="form-label"><strong>Ingredients:</strong>
             <textarea
               class="form-control"
               name="otherIngredients"
               cols="40"
               rows="4"
-            >{{recipeDetails.otherIngredients}}</textarea>
+            >{{recipeDetails.otherIngredients}}</textarea></label>
           </div>
 
           <div class="mb-3">
-            <label class="form-label"><strong>Description:</strong></label>
+            <label class="form-label"><strong>Description:</strong>
             <textarea
               class="form-control"
               name="description"
               cols="40"
               rows="6"
-            >{{recipeDetails.description}}</textarea>
+            >{{recipeDetails.description}}</textarea></label>
           </div>
 
           <div class="mb-3">
-            <label class="form-label"><strong>Instructions:</strong></label>
+            <label class="form-label"><strong>Instructions:</strong>
             <textarea
               class="form-control"
               name="instructionSteps"
               cols="40"
               rows="4"
-            >{{recipeDetails.instructionSteps}}</textarea>
+            >{{recipeDetails.instructionSteps}}</textarea></label>
           </div>
 
           <div class="mb-3">
-            <label class="form-label"><strong>Difficulty:</strong></label>
+            <label class="form-label"><strong>Difficulty:</strong>
             <select class="form-select" name="difficulty" value="{{recipeDetails.difficulty}}">
               <option value="{{recipeDetails.difficulty}}" selected>{{recipeDetails.difficulty}}</option>
             {{#each remainingDifficulties}}
               <option value="{{this}}">{{this}}</option>
             {{/each}}
-            </select>
+            </select></label>
           </div>
 
           <button type="submit" class="btn btn-primary">Save changes</button>

@@ -4,6 +4,7 @@ const isLoggedIn = require('../middleware/isLoggedIn');
 
 const router = require('express').Router();
 
+const alcohol = ['Gin', 'Vodka', 'Rum', 'Tequila', 'Other'];
 const difficulties = ['easy', 'medium', 'hard'];
 
 //READ: list all recipes
@@ -64,9 +65,11 @@ router.get('/recipes/:recipeId', (req, res, next) => {
 router.get('/recipes/:recipeId/edit', isLoggedIn, (req, res, next) => {
     Recipe.findById(req.params.recipeId)
     .then((recipeDetails) => {
+        let remainingAlcohol = alcohol.filter(a => 
+            a !== recipeDetails.spirits)
         let remainingDifficulties = difficulties.filter(d => 
             d !== recipeDetails.difficulty)
-        res.render('recipes/recipe-edit', { recipeDetails, remainingDifficulties: remainingDifficulties });
+        res.render('recipes/recipe-edit', { recipeDetails, remainingAlcohol: remainingAlcohol, remainingDifficulties: remainingDifficulties });
     })
     .catch(err => {
         console.log('error getting recipe details from DB', err);
