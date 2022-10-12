@@ -10,3 +10,12 @@ a {
 h1 {
   margin: 1rem auto;
 }
+
+.bgimage {
+  background-size: cover;
+}
+
+.index {
+  color: rgba(203, 163, 18, 0.829);
+  padding-top: 3rem;
+}
