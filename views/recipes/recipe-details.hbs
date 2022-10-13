@@ -1,33 +1,42 @@
-<div class="container text-left">
+<section class="container mt-3" style="max-width: 1000px">
 
-  <section class="container mt-3">
+  <div class="card mb-3">
+    <div class="row g-0">
+      <div class="col-md-6">
+        <img
+          src="{{this.imageUrl}}"
+          class="img-fluid rounded-start"
+          alt="{{this.name}}"
+        />
+      </div>
 
-    <div class="card">
-      <div class="card-body">
+      <div class="col-md-6">
+        <div class="card-body">
 
-        <h5 class="card-title">{{name}}</h5>
-        <p><img src="{{this.imageUrl}}" class="card-img-top" alt="{{this.name}}"></p>
-        <p><strong>Spirits:</strong> {{spirits}} </p>
-        <p><strong>Ingredients:</strong></p>
-        <ul>
-          {{#each otherIngredients}}
-            <li>{{this}}</li>
-          {{/each}}
-        </ul>
+          <h5 class="card-title"><strong>{{name}}</strong></h5>
+          <p><strong>Spirits:</strong> {{spirits}} </p>
+          <p><strong>Ingredients:</strong></p>
+          <ul>
+            {{#each otherIngredients}}
+              <li>{{this}}</li>
+            {{/each}}
+          </ul>
 
-        <p><strong>Description:</strong> {{description}}</p>
-        <p><strong>Instructions:</strong></p>
+          <p><strong>Description:</strong> {{description}}</p>
+          <p><strong>Instructions:</strong></p>
 
-        <ol>
-          {{#each instructionSteps}}
-            <li>{{this}}</li>
-          {{/each}}
-        </ol>
+          <ol>
+            {{#each instructionSteps}}
+              <li>{{this}}</li>
+            {{/each}}
+          </ol>
 
-        <p><strong>Difficulty:</strong> {{difficulty}}</p>
+          <p><strong>Difficulty:</strong> {{difficulty}}</p>
 
-        <a href="/recipes/{{_id}}/edit" class="btn btn-primary">Edit</a>
+          <a href="/recipes/{{_id}}/edit" class="btn btn-primary">Edit</a>
+
+        </div>
       </div>
     </div>
-  </section>
-</div>
+  </div>
+</section>
