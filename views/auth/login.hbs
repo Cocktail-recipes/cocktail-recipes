@@ -15,7 +15,6 @@
               class="form-control"
               name="email"
               placeholder="rockstar@ironhack.com"
-              required
             />
           </div>
 
@@ -26,18 +25,19 @@
               class="form-control"
               name="password"
               placeholder="xxxxxxxx"
-              required
             />
           </div>
 
           <button type="submit" class="btn btn-primary">Login</button>
         </form>
 
+          {{#if errorMessage}}
+        <div class="bg-danger p-2 text-white bg-opacity-75">
+            {{errorMessage}}
+            </div>
+          {{/if}}
+
       </div>
     </div>
   </section>
 </div>
-
-{{#if errorMessage}}
-  {{errorMessage}}
-{{/if}}
