@@ -1,90 +1,121 @@
-<div class="container text-left">
+<section class="container mt-3" style="max-width: 1000px">
 
-  <section class="container mt-3">
+  <div class="card">
+    <div class="card-body">
+      <h5 class="card-title">Edit the recipe for
+        <strong>{{recipeDetails.name}}</strong></h5>
 
-    <div class="card">
-      <div class="card-body">
-        <h5 class="card-title">Edit the recipe for<strong>{{recipeDetails.name}}</strong></h5>
+      <form
+        action="/recipes/{{recipeDetails._id}}/edit"
+        method="post"
+        enctype="multipart/form-data"
+      >
 
-        <form action="/recipes/{{recipeDetails._id}}/edit" method="post" enctype="multipart/form-data">
-
-          <div class="mb-3">
-            <label class="form-label"><strong>Name:</strong>
+        <div class="mb-3">
+          <label class="form-label"><strong>Name:</strong>
             <input
               type="text"
               class="form-control"
               name="name"
               value="{{recipeDetails.name}}"
-            /></label>
-          </div>
+            />
+          </label>
+        </div>
 
-          <div class="mb-3">
-            <label>Image:
-              <input type="file" name="cocktail-image" class="form-control-file" />
-              <input type="text" name="existingImage" hidden value="{{recipeDetails.imageUrl}}">
-            </label>
-          </div>
+        <div class="mb-3">
+          <label>Image:
+            <input
+              type="file"
+              name="cocktail-image"
+              class="form-control-file"
+            />
+            <input
+              type="text"
+              name="existingImage"
+              hidden
+              value="{{recipeDetails.imageUrl}}"
+            />
+          </label>
+        </div>
 
-
-          <div class="mb-3">
-            <label class="form-label"><strong>Spirits:</strong>
-            <select class="form-select" name="spirits" size="5" value="{{recipeDetails.spirits}}">
-              <option value="{{recipeDetails.spirits}}" selected>{{recipeDetails.spirits}}</option>
+        <div class="mb-3">
+          <label class="form-label"><strong>Spirits:</strong>
+            <select
+              class="form-select"
+              name="spirits"
+              size="5"
+              value="{{recipeDetails.spirits}}"
+            >
+              <option
+                value="{{recipeDetails.spirits}}"
+                selected
+              >{{recipeDetails.spirits}}</option>
               {{#each remainingAlcohol}}
                 <option value="{{this}}">{{this}}</option>
               {{/each}}
-            </select></label>
-          </div>
+            </select>
+          </label>
+        </div>
 
-          <div class="mb-3">
-            <label class="form-label"><strong>Ingredients:</strong>
-                  <input type="text"
-                  class="form-control"
-                  name="otherIngredients"
-                  >
-              
-          </div>
+        <div class="mb-3">
+          <label class="form-label"><strong>Ingredients:</strong>
+            <input type="text" class="form-control" name="otherIngredients" />
+          </label>
+        </div>
 
-          <div class="mb-3">
-            <label class="form-label"><strong>Description:</strong>
+        <div class="mb-3">
+          <label class="form-label"><strong>Description:</strong>
             <textarea
               class="form-control"
               name="description"
               cols="40"
               rows="6"
-            >{{recipeDetails.description}}</textarea></label>
-          </div>
+            >{{recipeDetails.description}}
+            </textarea>
+          </label>
+        </div>
 
-          <div class="mb-3">
-            <label class="form-label"><strong>Instructions:</strong>
+        <div class="mb-3">
+          <label class="form-label"><strong>Instructions:</strong>
             <textarea
               class="form-control"
               name="instructionSteps"
               cols="40"
               rows="4"
-            >{{recipeDetails.instructionSteps}}</textarea></label>
-          </div>
+            >{{recipeDetails.instructionSteps}}
+            </textarea>
+          </label>
+        </div>
 
-          <div class="mb-3">
-            <label class="form-label"><strong>Difficulty:</strong>
-            <select class="form-select" name="difficulty" value="{{recipeDetails.difficulty}}">
-              <option value="{{recipeDetails.difficulty}}" selected>{{recipeDetails.difficulty}}</option>
-            {{#each remainingDifficulties}}
-              <option value="{{this}}">{{this}}</option>
-            {{/each}}
-            </select></label>
-          </div>
+        <div class="mb-3">
+          <label class="form-label"><strong>Difficulty:</strong>
+            <select
+              class="form-select"
+              name="difficulty"
+              value="{{recipeDetails.difficulty}}"
+            >
+              <option
+                value="{{recipeDetails.difficulty}}"
+                selected
+              >{{recipeDetails.difficulty}}</option>
+              {{#each remainingDifficulties}}
+                <option value="{{this}}">{{this}}</option>
+              {{/each}}
+            </select>
+          </label>
+        </div>
 
-          <button type="submit" class="btn btn-primary">Save changes</button>
-        </form>
-      </div>
+        <button type="submit" class="btn btn-primary">Save changes</button>
+      </form>
 
       <div class="mb-3">
         <form action="/recipes/{{recipeDetails._id}}/delete" method="post">
           <button type="submit" class="btn btn-danger">Delete</button>
         </form>
       </div>
+
     </div>
 
-  </section>
-</div>
+  </div>
+
+</section>
