@@ -69,13 +69,22 @@ router.get('/recipes/:recipeId', (req, res, next) => {
 router.get('/recipes/:recipeId/edit', isLoggedIn, (req, res, next) => {
     Recipe.findById(req.params.recipeId)
     .then((recipeDetails) => {
-//        let remainingAlcohol = alcohol.filter(a => 
-//            !)
-        let remainingDifficulties = difficulties.filter(d => 
-            d !== recipeDetails.difficulty)
+        let difficultyChoice = '\
+        <select\
+        class="form-select"\
+        name="difficulty"\
+        >';
+        for (const difficulty of difficulties) {
+            difficultyChoice += `<option value="${difficulty}"`;
+            if (difficulty == recipeDetails.difficulty) {
+                difficultyChoice += ' selected';
+            }
+            difficultyChoice += `>${difficulty}</option>`;
+        }
+        difficultyChoice += '</select>';
         let ingredients = recipeDetails.otherIngredients.join(', ');
         let instructions = recipeDetails.instructionSteps.join('\n');
-        res.render('recipes/recipe-edit', { recipeDetails, ingredients, instructions, remainingDifficulties: remainingDifficulties });
+        res.render('recipes/recipe-edit', { recipeDetails, ingredients, instructions, difficultyChoice });
     })
     .catch(err => {
         console.log('error getting recipe details from DB', err);

@@ -92,19 +92,7 @@
 
         <div class="mb-3">
           <label class="form-label"><strong>Difficulty:</strong>
-            <select
-              class="form-select"
-              name="difficulty"
-              value="{{recipeDetails.difficulty}}"
-            >
-              <option
-                value="{{recipeDetails.difficulty}}"
-                selected
-              >{{recipeDetails.difficulty}}</option>
-              {{#each remainingDifficulties}}
-                <option value="{{this}}">{{this}}</option>
-              {{/each}}
-            </select>
+          {{{difficultyChoice}}}
           </label>
         </div>
 
