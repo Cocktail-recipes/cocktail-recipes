@@ -57,11 +57,14 @@
           </label>
         </div>
 
-        <div class="mb-3">
-          <label class="form-label"><strong>Ingredients:</strong>
-            <input type="text" class="form-control" name="otherIngredients" />
-          </label>
-        </div>
+          <div class="mb-3">
+            <label class="form-label"><strong>Ingredients:</strong>
+                  <input type="text"
+                  class="form-control"
+                  name="otherIngredients" 
+                  value="{{ingredients}}">
+              </label>
+          </div>
 
         <div class="mb-3">
           <label class="form-label"><strong>Description:</strong>
@@ -82,10 +85,10 @@
               name="instructionSteps"
               cols="40"
               rows="4"
-            >{{recipeDetails.instructionSteps}}
-            </textarea>
-          </label>
-        </div>
+              >{{instructions}}
+              </textarea>
+            </label>
+          </div>
 
         <div class="mb-3">
           <label class="form-label"><strong>Difficulty:</strong>

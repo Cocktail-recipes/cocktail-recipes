@@ -73,7 +73,9 @@ router.get('/recipes/:recipeId/edit', isLoggedIn, (req, res, next) => {
 //            !)
         let remainingDifficulties = difficulties.filter(d => 
             d !== recipeDetails.difficulty)
-        res.render('recipes/recipe-edit', { recipeDetails, remainingDifficulties: remainingDifficulties });
+        let ingredients = recipeDetails.otherIngredients.join(', ');
+        let instructions = recipeDetails.instructionSteps.join('\n');
+        res.render('recipes/recipe-edit', { recipeDetails, ingredients, instructions, remainingDifficulties: remainingDifficulties });
     })
     .catch(err => {
         console.log('error getting recipe details from DB', err);
