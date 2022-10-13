@@ -27,17 +27,18 @@ router.get('/recipes/create', isLoggedIn, (req, res, next) => {
 
 //CREATE: process form
 router.post('/recipes/create', isLoggedIn, fileUploader.single('cocktail-image'), (req, res, next) => {
-    const splitIngredients = otherIngredients.split(', ');
-    const recipeDetails = {
+    let recipeDetails = {
         name: req.body.name,
         spirits: req.body.spirits,
-        splitIngredients: req.body.otherIngredients,
+        otherIngredients: req.body.otherIngredients,
         description: req.body.description,
         difficulty: req.body.difficulty,
         instructionSteps: req.body.instructionSteps,
-        imageUrl: req.file.path
+        imageUrl: req.file?.path
     }
-    if (!recipeDetails.name || !recipeDetails.splitIngredients || !recipeDetails.instructionSteps) {
+    recipeDetails.otherIngredients = recipeDetails.otherIngredients.split(', ');
+    recipeDetails.instructionSteps = recipeDetails.instructionSteps.split('\n');
+    if (!recipeDetails.name || !recipeDetails.otherIngredients || !recipeDetails.instructionSteps) {
         res.render('recipes/recipe-create', { errorMessage: 'Please fill out all mandatory fields. You must provide at least a cocktail name, the ingredients, and the instructions.'});
         return;
     }
@@ -85,6 +86,7 @@ router.post('/recipes/:recipeId/edit', isLoggedIn, fileUploader.single('cocktail
     const { recipeId } = req.params;
     let { name, spirits, otherIngredients, description, difficulty, instructionSteps, existingImage } = req.body;
     otherIngredients = otherIngredients.split(', ');
+    instructionSteps = instructionSteps.split('\n');
 
     let imageUrl;
     if (req.file) {
@@ -94,8 +96,7 @@ router.post('/recipes/:recipeId/edit', isLoggedIn, fileUploader.single('cocktail
     }
   
     Recipe.findByIdAndUpdate(recipeId, {name, spirits, otherIngredients, description, difficulty, instructionSteps, imageUrl}, {new: true})
-    .then((split) => {
-        console.log(split);
+    .then(() => {
         res.redirect(`/recipes/${recipeId}`);
     })
     .catch(err => {
