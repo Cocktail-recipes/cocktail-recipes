@@ -38,20 +38,7 @@
 
         <div class="mb-3">
           <label class="form-label"><strong>Spirits:</strong></label>
-            <select
-              class="form-select"
-              name="spirits"
-              size="5"
-              value="{{recipeDetails.spirits}}"
-            >
-              <option
-                value="{{recipeDetails.spirits}}"
-                selected
-              >{{recipeDetails.spirits}}</option>
-              {{#each remainingAlcohol}}
-                <option value="{{this}}">{{this}}</option>
-              {{/each}}
-            </select>
+          {{{spiritsChoice}}}
         </div>
 
           <div class="mb-3">
