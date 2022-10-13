@@ -12,18 +12,17 @@
       >
 
         <div class="mb-3">
-          <label class="form-label"><strong>Name:</strong>
+          <label class="form-label"><strong>Name:</strong></label>
             <input
               type="text"
               class="form-control"
               name="name"
               value="{{recipeDetails.name}}"
             />
-          </label>
         </div>
 
         <div class="mb-3">
-          <label>Image:
+          <label>Image:</label>
             <input
               type="file"
               name="cocktail-image"
@@ -35,11 +34,10 @@
               hidden
               value="{{recipeDetails.imageUrl}}"
             />
-          </label>
         </div>
 
         <div class="mb-3">
-          <label class="form-label"><strong>Spirits:</strong>
+          <label class="form-label"><strong>Spirits:</strong></label>
             <select
               class="form-select"
               name="spirits"
@@ -54,20 +52,18 @@
                 <option value="{{this}}">{{this}}</option>
               {{/each}}
             </select>
-          </label>
         </div>
 
           <div class="mb-3">
-            <label class="form-label"><strong>Ingredients:</strong>
+            <label class="form-label"><strong>Ingredients:</strong></label>
                   <input type="text"
                   class="form-control"
                   name="otherIngredients" 
                   value="{{ingredients}}">
-              </label>
           </div>
 
         <div class="mb-3">
-          <label class="form-label"><strong>Description:</strong>
+          <label class="form-label"><strong>Description:</strong></label>
             <textarea
               class="form-control"
               name="description"
@@ -75,11 +71,10 @@
               rows="6"
             >{{recipeDetails.description}}
             </textarea>
-          </label>
         </div>
 
         <div class="mb-3">
-          <label class="form-label"><strong>Instructions:</strong>
+          <label class="form-label"><strong>Instructions:</strong></label>
             <textarea
               class="form-control"
               name="instructionSteps"
@@ -87,13 +82,11 @@
               rows="4"
               >{{instructions}}
               </textarea>
-            </label>
           </div>
 
         <div class="mb-3">
-          <label class="form-label"><strong>Difficulty:</strong>
+          <label class="form-label"><strong>Difficulty:</strong></label>
           {{{difficultyChoice}}}
-          </label>
         </div>
 
         <button type="submit" class="btn btn-primary">Save changes</button>
