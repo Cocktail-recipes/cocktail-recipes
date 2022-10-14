@@ -20,8 +20,8 @@ Environment variables are stored in the file ".env":
 
 ```
 PORT=3000
-SESSION_SECRET = "keyboard cat" // can be any string
-CLOUDINARY_NAME=                // You get the cloudinary variables
+SESSION_SECRET =                //   can be any string
+CLOUDINARY_NAME=                //   You get the cloudinary variables
 CLOUDINARY_KEY=                 //   on the Dashboard of the
 CLOUDINARY_SECRET=              //   cloudinary web site.
 ```
