@@ -4,13 +4,13 @@
 
 This is a database for cocktail recipes.
 
-When the user has not signed up, she can just watch all recipes in the database.
+When the user has not signed up, they can only view the recipes in the database.
 
-After signing up, she can also add recipes and delete them.
+After signing up, they can also add new recipes and delete them.
 
 ## Setup
 
-If you'd like to watch how the cocktail recipe database works, go to [Cocktail recipes at heroku](https://cocktail-recipes-db.herokuapp.com/)
+If you'd like to see how the cocktail recipe database works, go to [Cocktail recipes at heroku](https://cocktail-recipes-db.herokuapp.com/)
 
 ## Run on your computer
 
@@ -32,4 +32,4 @@ To run the application, you need to run `npm run dev` for development or `npm ru
 
 ## Team Members
 
-This was an exercise by [Julia Spriggs](https://github.com/julia-spriggs) and [Wilfried Wurch](https://github.com/wilfried68/).
+This was a project by [Julia Spriggs](https://github.com/julia-spriggs) and [Wilfried Wurch](https://github.com/wilfried68/).
