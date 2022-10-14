@@ -6,10 +6,14 @@
       <div class="card-body">
         <h5 class="card-title">Add a new cocktail recipe</h5>
 
+        {{#if errorMessage}}
+          <p class="error">{{errorMessage}}</p>
+        {{/if}}
+
         <form action="/recipes/create" method="post" enctype="multipart/form-data">
 
           <div class="mb-3">
-            <label class="form-label"><strong>Name:</strong></label>
+            <label class="form-label"><strong>Name*:</strong></label>
             <input type="text" class="form-control" name="name" />
           </div>
 
@@ -32,7 +36,7 @@
           </div>
 
           <div class="mb-3">
-            <label class="form-label"><strong>Ingredients:</strong></label>
+            <label class="form-label"><strong>Ingredients*:</strong></label>
                   <input type="text"
                   class="form-control"
                   name="otherIngredients">
@@ -49,13 +53,13 @@
           </div>
 
           <div class="mb-3">
-            <label class="form-label"><strong>Instructions:</strong></label>
+            <label class="form-label"><strong>Instructions*:</strong></label>
             <textarea
               class="form-control"
               name="instructionSteps"
               cols="40"
               rows="4"
-            ></textarea>
+              ></textarea>
           </div>
 
           <div class="mb-3">
@@ -68,11 +72,8 @@
             </div>
 
           <button type="submit" class="btn btn-primary">Add your cocktail recipe</button>
+        <p>Please note: all fields with an asterisk must be filled out.</p>
         </form>
-
-        {{#if errorMessage}}
-          <p class="error">{{errorMessage}}</p>
-        {{/if}}
       </div>
     </div>
   </section>
