@@ -10,7 +10,7 @@ After signing up, they can also add new recipes and delete them.
 
 ## Setup
 
-If you'd like to see how the cocktail recipe database works, go to [Cocktail recipes at heroku](https://cocktail-recipes-db.herokuapp.com/)
+If you'd like to see how the cocktail recipe database works, go to [our website on adaptable](https://cocktail-recipes.adaptable.app)
 
 ## Run on your computer
 
